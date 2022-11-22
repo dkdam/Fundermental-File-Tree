@@ -1,15 +1,27 @@
 
 function App() {
   return <div>
-    <h1>Hello World!</h1>
-    <Folder name="Desktop"/>
-    <Folder name="Application"/>
+    <Folder name = "Desktop">
+      <File name = "dog.png" />
+      <File name = "cat.png" />
+      <File name = "bird.png" />
+    </Folder>
+
+    <Folder name = "Application" />
 
   </div>
 }
 
 const Folder = (props) => {
-  return <h4>{props.name}</h4>
+  console.log(props)
+  return <div>
+    {props.name}
+    {props.children}
+    </div>
+}
+
+const File = (props) => {
+  return <h5>{props.name}</h5>
 }
 
 export default App;
