@@ -6,11 +6,11 @@ function App() {
     <Folder name = "Desktop" isOpen = {false}>
       <Folder name = "Music">
         <File name = "Some_Song.mp3" />
-        <File name = "More_Song.mp4" />
+        <File name = "More_Song.mp3" />
       </Folder>
       <File name = "dog.png" />
       <File name = "cat.png" />
-      <File name = "bird.png" />
+      <File name = "bird.jpeg" />
     </Folder>
 
     <Folder name = "Application" />
@@ -38,8 +38,18 @@ const Folder = (props) => {
 }
 
 const File = (props) => {
+  const { name } = props
+  const fileExtension = name.split('.')[1]
+  const fileIcons = {
+    mp3: 'headphones',
+    jpeg: 'file image',
+    png: 'file image outline'
+  }
 
-  return <h5>{props.name}</h5>
+  return <div>
+    <i className={`caret ${fileIcons[fileExtension]} icon`}></i>
+    {name}
+  </div> 
 }
 
 export default App;
